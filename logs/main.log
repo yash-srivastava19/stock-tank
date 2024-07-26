@@ -1,0 +1,53 @@
+2024-07-26 12:32:48,158 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:32:48,158 INFO Starting initial training for AAPL
+2024-07-26 12:32:51,940 ERROR An error occurred in the main workflow: 'Namespace' object has no attribute 'batch_size'
+2024-07-26 12:33:34,434 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:33:34,434 INFO Starting initial training for AAPL
+2024-07-26 12:34:42,723 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:34:42,723 INFO Starting initial training for AAPL
+2024-07-26 12:42:13,610 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:42:13,610 INFO Starting initial training for AAPL
+2024-07-26 12:46:53,214 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:46:53,214 INFO Starting initial training for AAPL
+2024-07-26 12:47:18,398 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:47:18,398 INFO Starting initial training for AAPL
+2024-07-26 12:47:40,702 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:47:40,702 INFO Starting initial training for AAPL
+2024-07-26 12:48:24,793 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:48:24,793 INFO Starting initial training for AAPL
+2024-07-26 12:49:57,022 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:49:57,022 INFO Starting initial training for AAPL
+2024-07-26 12:53:19,496 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:53:19,496 INFO Starting initial training for AAPL
+2024-07-26 12:55:55,913 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:55:55,913 INFO Starting initial training for AAPL
+2024-07-26 12:56:21,091 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 12:56:21,091 INFO Starting initial training for AAPL
+2024-07-26 12:56:27,438 INFO Initial training completed for AAPL. Model version: 1
+2024-07-26 13:03:45,199 INFO No existing model found for MSFT. Performing initial training.
+2024-07-26 13:03:45,200 INFO Starting initial training for MSFT
+2024-07-26 13:03:48,218 INFO Initial training completed for MSFT. Model version: 1
+2024-07-26 13:15:36,127 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 13:15:36,127 INFO Starting initial training for AAPL
+2024-07-26 13:15:41,737 INFO Initial training completed for AAPL. Model version: 1
+2024-07-26 13:16:57,038 INFO Existing model found for AAPL
+2024-07-26 13:19:27,603 INFO Existing model found for AAPL
+2024-07-26 13:34:38,829 INFO Existing model found for AAPL
+2024-07-26 13:35:25,941 INFO Existing model found for AAPL
+2024-07-26 13:35:40,038 INFO Existing model found for AAPL
+2024-07-26 13:45:32,053 INFO Existing model found for AAPL
+2024-07-26 13:45:52,123 INFO Existing model found for AAPL
+2024-07-26 13:47:03,159 INFO Existing model found for AAPL
+2024-07-26 14:03:08,189 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 14:03:08,189 INFO Starting initial training for AAPL
+2024-07-26 14:03:13,983 INFO Initial training completed for AAPL. Model version: 1
+2024-07-26 14:03:31,116 INFO Existing model found for AAPL
+2024-07-26 16:32:59,135 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 16:32:59,135 INFO Starting initial training for AAPL
+2024-07-26 16:35:04,099 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 16:35:04,099 INFO Starting initial training for AAPL
+2024-07-26 16:36:23,605 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 16:36:23,605 INFO Starting initial training for AAPL
+2024-07-26 16:44:49,925 INFO No existing model found for AAPL. Performing initial training.
+2024-07-26 16:44:49,925 INFO Starting initial training for AAPL
+2024-07-26 16:44:56,005 INFO Initial training completed for AAPL. Model version: 1
