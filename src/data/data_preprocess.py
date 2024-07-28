@@ -9,7 +9,7 @@ def load_data(symbol):
     """
     return pd.read_csv(f"data/raw/{symbol}_stock_data.csv", index_col=0, parse_dates=True)
 
-def preprocess_data(data):
+def preprocess_data(data:pd.DataFrame):
     """
     Preprocess the data for model training.
     """

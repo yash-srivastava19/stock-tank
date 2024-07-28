@@ -4,18 +4,17 @@ import time
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 from datetime import datetime, timedelta
-from data.data_collect import collect_stock_data
+from data.data_collect import collect_stock_data, save_data
 from models.model_train import LSTMModel, prepare_sequences, train_model
-from data.data_preprocess import preprocess_data, split_data
+
+from data.data_preprocess import preprocess_data, split_data, save_processed_data, split_data
+
 from models.model_train import prepare_sequences, train_model
 from models.model_eval import evaluate_model
 from models.model_versioning import save_model_version, load_model_version
-from models.model_autoretrain import retrain_model
-from monitoring.monitor_performance import monitor_performance
-from monitoring.monitor_data_drift import monitor_data_drift
-from utils.logging_utils import main_logger, send_alert
+from utils.logging_utils import main_logger
 
-def initial_training(symbol, days=365, seq_length=10):
+def initial_training(symbol, days=365, seq_length=10, batch_size=32):
     main_logger.info(f"Starting initial training for {symbol}")
     
     end_date = datetime.now()
@@ -23,10 +22,12 @@ def initial_training(symbol, days=365, seq_length=10):
     
     # Collect data
     raw_data = collect_stock_data(symbol, start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"))
+    save_data(raw_data, f"{symbol}_stock_data.csv")
     
     # Preprocess data
     processed_data, scaler = preprocess_data(raw_data)
     train_data, test_data = split_data(processed_data)
+    save_processed_data(train_data, test_data, scaler, symbol)
     
     # Prepare sequences
     X_train, y_train = prepare_sequences(train_data, seq_length)
@@ -49,10 +50,10 @@ def initial_training(symbol, days=365, seq_length=10):
     train_dataset = TensorDataset(X_train_tensor, y_train_tensor)
     test_dataset = TensorDataset(X_test_tensor, y_test_tensor)
     
-    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     # Train model
-    # print("Reached Here")
+    
     train_model(model, train_loader, test_loader, device)
     
     # Evaluate model
@@ -63,33 +64,8 @@ def initial_training(symbol, days=365, seq_length=10):
     version = save_model_version(symbol, model, performance_metrics)
     
     main_logger.info(f"Initial training completed for {symbol}. Model version: {version}")
+    return model, version
 
-def run_daily_tasks(symbol):
-    main_logger.info(f"Running daily tasks for {symbol}")
-    
-    # Monitor performance
-    monitor_performance(symbol)
-    
-    # Check for data drift
-    monitor_data_drift(symbol)
-    
-    main_logger.info(f"Daily tasks completed for {symbol}")
-
-def run_weekly_tasks(symbol):
-    main_logger.info(f"Running weekly tasks for {symbol}")
-    
-    # Retrain model
-    retrain_model(symbol)
-    
-    main_logger.info(f"Weekly tasks completed for {symbol}")
-
-def schedule_tasks(symbol):
-    schedule.every().day.at("00:00").do(run_daily_tasks, symbol)
-    schedule.every().monday.at("01:00").do(run_weekly_tasks, symbol)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(3600)  # Sleep for an hour between checks
 
 def main(symbol):
     try:

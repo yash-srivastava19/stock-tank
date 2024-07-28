@@ -5,6 +5,8 @@ import yfinance as yf
 import torch
 import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
+from models.model_versioning import load_model_version
+from main import initial_training
 
 def get_stock_data(symbol, start_date, end_date):
     """
@@ -62,7 +64,16 @@ symbol = st.selectbox("Select stock symbol:", ["AAPL", "MSFT", "GOOGL", "AMZN", 
 days = st.number_input("Enter number of days to predict:", min_value=1, max_value=30, value=7)
 
 with st.spinner("Loading model..."):
-    model = torch.jit.load(f"models/versions/{symbol}/v1_model.pth")
+    try:
+        model, metadata = load_model_version(symbol)
+        st.write(f"Model version {metadata['version']} loaded for {symbol}")
+        #main_logger.info(f"Existing model found for {symbol}")
+    except FileNotFoundError:
+        st.write(f"No existing model found for {symbol}. Performing initial training.")
+        with st.spinner("Performing initial training..."):
+            model, version = initial_training(symbol)
+            st.write(f"Initial training completed for {symbol}. Model version: {version}")
+    #model, metadata = load_model_version(symbol)
 
 model.eval()
 

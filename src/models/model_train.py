@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 import argparse
 from sklearn.model_selection import train_test_split
-# from model.model_versioning import save_model_version
 
 class LSTMModel(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, dropout_prob):
@@ -93,8 +92,6 @@ def train_model(model, train_loader, val_loader, device):
 def main(args):
     data = load_data(args.symbol)
     X, y = prepare_sequences(data, args.seq_length)
-    
-    print(X.shape, y.shape)
     
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
     

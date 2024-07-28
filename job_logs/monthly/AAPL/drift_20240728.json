@@ -1,0 +1,33 @@
+{
+  "timestamp": "2024-07-28T15:09:14.133003",
+  "drift_results": {
+    "Open": {
+      "p_value": 2.6885169696017342e-24,
+      "drift_detected": true
+    },
+    "High": {
+      "p_value": 1.2408539859700294e-25,
+      "drift_detected": true
+    },
+    "Low": {
+      "p_value": 2.6885169696017342e-24,
+      "drift_detected": true
+    },
+    "Close": {
+      "p_value": 1.0369994025606687e-23,
+      "drift_detected": true
+    },
+    "Volume": {
+      "p_value": 0.2950319795884194,
+      "drift_detected": false
+    },
+    "Dividends": {
+      "p_value": 1.0,
+      "drift_detected": false
+    },
+    "Stock Splits": {
+      "p_value": 1.0,
+      "drift_detected": false
+    }
+  }
+}

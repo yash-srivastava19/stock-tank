@@ -1,11 +1,47 @@
-import pandas as pd
-import numpy as np
+import os
+import json
 import torch
-import torch.nn.functional as F
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-import matplotlib.pyplot as plt
 import argparse
-from models.model_train import LSTMModel
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+def get_latest_model_version(symbol):
+    versions_dir = f"models/versions/{symbol}"
+    if not os.path.exists(versions_dir):
+        return None
+    
+    versions = [int(f.split('_')[0][1:]) for f in os.listdir(versions_dir) if f.endswith('_model.pth')]
+    if not versions:
+        return None
+    
+    latest_version = max(versions)
+    return latest_version
+
+def load_model_version(symbol, version=None):
+    if version is None:
+        version = get_latest_model_version(symbol)
+        if version is None:
+            raise FileNotFoundError(f"No model versions found for {symbol}")
+    
+    model_path = f"models/versions/{symbol}/v{version}_model.pth"
+    metadata_path = f"models/versions/{symbol}/v{version}_metadata.json"
+    
+    if not os.path.exists(model_path) or not os.path.exists(metadata_path):
+        raise FileNotFoundError(f"Model version {version} not found for {symbol}")
+    
+    
+    model = torch.jit.load(model_path)
+    model.eval()  # Set the model to evaluation mode
+    
+    # Load metadata
+    with open(metadata_path, 'r') as f:
+        metadata = json.load(f)
+    
+    return model, metadata
+
 
 def load_test_data(symbol):
     """
@@ -52,7 +88,7 @@ def plot_results(y_test, predictions, symbol):
     plt.xlabel("Time")
     plt.ylabel("Price")
     plt.legend()
-    plt.savefig(f"models/{symbol}_prediction_plot.png")
+    plt.savefig(f"plots/{symbol}_prediction_plot.png")
 
 def main(symbol, seq_length):
     test_data = load_test_data(symbol)
@@ -60,9 +96,12 @@ def main(symbol, seq_length):
     
     # Load the model
     # model = torch.load(f"models/{symbol}_lstm_model.pth")
-    model_class = LSTMModel  # Replace with your model class
-    model = model_class()  # Instantiate the model
-    model.load_state_dict(torch.load(f"models/{symbol}_lstm_model.pth"))
+    try:
+        model, metadata = load_model_version(symbol)
+        #main_logger.info(f"Existing model found for {symbol}")
+    except FileNotFoundError:
+        model, version = initial_training(symbol) # FIXME: This function is not defined
+        print(f"No existing model found for {symbol}.")
     
     # Evaluate the model
     device = 'cuda' if torch.cuda.is_available() else 'cpu'

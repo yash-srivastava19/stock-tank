@@ -10,14 +10,14 @@ def detect_drift(reference_data, current_data, threshold=0.05):
     drift_results = {}
     for column in reference_data.columns:
         _, p_value = stats.ks_2samp(reference_data[column], current_data[column])
-        drift_detected = p_value < threshold
+        drift_detected = bool(p_value < threshold)
         drift_results[column] = {
             "p_value": p_value,
             "drift_detected": drift_detected
         }
     return drift_results
 
-def monitor_data_drift(symbol, reference_days=365, current_days=30):
+def monitor_data_drift(symbol, freq, reference_days=365, current_days=30):
     end_date = datetime.now()
     reference_start_date = end_date - timedelta(days=reference_days)
     current_start_date = end_date - timedelta(days=current_days)
@@ -30,8 +30,18 @@ def monitor_data_drift(symbol, reference_days=365, current_days=30):
     drift_results = detect_drift(reference_data, current_data)
     
     # Save drift detection results
-    monitoring_dir = f"monitoring/{symbol}"
-    os.makedirs(monitoring_dir, exist_ok=True)
+    
+    if freq == "daily":
+        monitoring_dir = f"job_logs/daily/{symbol}"
+    elif freq == "weekly":
+        monitoring_dir = f"job_logs/weekly/{symbol}"
+    elif freq == "monthly":
+        monitoring_dir = f"job_logs/monthly/{symbol}"
+    else:
+        raise ValueError("Invalid frequency. Use daily, weekly, or monthly.")
+    
+    if not os.path.exists(monitoring_dir):    
+        os.makedirs(monitoring_dir, exist_ok=True)
     
     results = {
         "timestamp": datetime.now().isoformat(),
@@ -41,10 +51,7 @@ def monitor_data_drift(symbol, reference_days=365, current_days=30):
     with open(f"{monitoring_dir}/drift_{end_date.strftime('%Y%m%d')}.json", 'w') as f:
         json.dump(results, f, indent=2)
     
-    print(f"Data drift detection results for {symbol}:")
-    print(json.dumps(results, indent=2))
-    
-    # You could add alerting logic here, e.g., if drift is detected in multiple features
+    print(f"Data drift detection results stored for {symbol}:")
 
 if __name__ == "__main__":
     import argparse

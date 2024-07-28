@@ -51,3 +51,122 @@
 2024-07-26 16:44:49,925 INFO No existing model found for AAPL. Performing initial training.
 2024-07-26 16:44:49,925 INFO Starting initial training for AAPL
 2024-07-26 16:44:56,005 INFO Initial training completed for AAPL. Model version: 1
+2024-07-28 11:11:43,706 INFO Starting initial training for MSFT
+2024-07-28 11:13:05,717 INFO Starting initial training for MSFT
+2024-07-28 11:13:05,717 INFO Starting initial training for MSFT
+2024-07-28 11:13:14,848 INFO Starting initial training for MSFT
+2024-07-28 11:13:14,848 INFO Starting initial training for MSFT
+2024-07-28 11:13:14,848 INFO Starting initial training for MSFT
+2024-07-28 11:13:18,491 INFO Initial training completed for MSFT. Model version: 1
+2024-07-28 11:13:18,491 INFO Initial training completed for MSFT. Model version: 1
+2024-07-28 11:13:18,491 INFO Initial training completed for MSFT. Model version: 1
+2024-07-28 11:13:34,196 INFO Starting initial training for GOOGL
+2024-07-28 11:13:34,196 INFO Starting initial training for GOOGL
+2024-07-28 11:13:34,196 INFO Starting initial training for GOOGL
+2024-07-28 11:13:37,258 INFO Initial training completed for GOOGL. Model version: 1
+2024-07-28 11:13:37,258 INFO Initial training completed for GOOGL. Model version: 1
+2024-07-28 11:13:37,258 INFO Initial training completed for GOOGL. Model version: 1
+2024-07-28 11:28:53,041 INFO Starting initial training for TSLA
+2024-07-28 11:28:53,041 INFO Starting initial training for TSLA
+2024-07-28 11:28:53,041 INFO Starting initial training for TSLA
+2024-07-28 11:28:53,041 INFO Starting initial training for TSLA
+2024-07-28 11:29:04,341 INFO Starting initial training for AMZN
+2024-07-28 11:29:04,341 INFO Starting initial training for AMZN
+2024-07-28 11:29:04,341 INFO Starting initial training for AMZN
+2024-07-28 11:29:04,341 INFO Starting initial training for AMZN
+2024-07-28 11:29:15,461 INFO Initial training completed for AMZN. Model version: 1
+2024-07-28 11:29:15,461 INFO Initial training completed for AMZN. Model version: 1
+2024-07-28 11:29:15,461 INFO Initial training completed for AMZN. Model version: 1
+2024-07-28 11:29:15,461 INFO Initial training completed for AMZN. Model version: 1
+2024-07-28 11:29:37,310 INFO Starting initial training for TSLA
+2024-07-28 11:29:37,310 INFO Starting initial training for TSLA
+2024-07-28 11:29:37,310 INFO Starting initial training for TSLA
+2024-07-28 11:29:37,310 INFO Starting initial training for TSLA
+2024-07-28 11:29:40,530 INFO Initial training completed for TSLA. Model version: 1
+2024-07-28 11:29:40,530 INFO Initial training completed for TSLA. Model version: 1
+2024-07-28 11:29:40,530 INFO Initial training completed for TSLA. Model version: 1
+2024-07-28 11:29:40,530 INFO Initial training completed for TSLA. Model version: 1
+2024-07-28 13:41:00,646 INFO Existing model found for GOOGL
+2024-07-28 14:01:30,902 INFO Running daily tasks for AAPL
+2024-07-28 14:02:31,451 INFO Running daily tasks for AAPL
+2024-07-28 14:03:56,621 INFO Running daily tasks for AAPL
+2024-07-28 14:05:21,742 INFO Running daily tasks for AAPL
+2024-07-28 14:05:49,344 INFO Running daily tasks for AAPL
+2024-07-28 14:08:25,221 INFO Running daily tasks for AAPL
+2024-07-28 14:10:34,531 INFO Running daily tasks for AAPL
+2024-07-28 14:13:42,482 INFO Running daily tasks for AAPL
+2024-07-28 14:14:15,541 INFO Running daily tasks for AAPL
+2024-07-28 14:14:46,253 INFO Running daily tasks for AAPL
+2024-07-28 14:16:00,867 INFO Running daily tasks for AAPL
+2024-07-28 14:16:50,223 INFO Running daily tasks for AAPL
+2024-07-28 14:21:04,521 INFO Running daily tasks for AAPL
+2024-07-28 14:21:36,031 INFO Running daily tasks for AAPL
+2024-07-28 14:23:31,242 INFO Running daily tasks for AAPL
+2024-07-28 14:24:18,602 INFO Running daily tasks for AAPL
+2024-07-28 14:25:05,201 INFO Running daily tasks for AAPL
+2024-07-28 14:25:57,546 INFO Running daily tasks for AAPL
+2024-07-28 14:26:24,879 INFO Running daily tasks for AAPL
+2024-07-28 14:27:27,512 INFO Running daily tasks for AAPL
+2024-07-28 14:27:58,284 INFO Running daily tasks for AAPL
+2024-07-28 14:28:54,312 INFO Running daily tasks for AAPL
+2024-07-28 14:29:15,694 INFO Running daily tasks for AAPL
+2024-07-28 14:30:07,991 INFO Running daily tasks for AAPL
+2024-07-28 14:32:17,892 INFO Running daily tasks for AAPL
+2024-07-28 14:34:14,653 INFO Running daily tasks for AAPL
+2024-07-28 14:34:44,611 INFO Running daily tasks for AAPL
+2024-07-28 14:35:29,607 INFO Running daily tasks for AAPL
+2024-07-28 14:36:42,011 INFO Running daily tasks for AAPL
+2024-07-28 14:38:05,783 INFO Running daily tasks for AAPL
+2024-07-28 14:38:06,702 INFO Daily tasks completed for AAPL
+2024-07-28 14:38:06,702 INFO Running daily tasks for MSFT
+2024-07-28 14:38:06,954 INFO Daily tasks completed for MSFT
+2024-07-28 14:38:06,954 INFO Running daily tasks for GOOGL
+2024-07-28 14:38:07,279 INFO Daily tasks completed for GOOGL
+2024-07-28 14:38:07,279 INFO Running daily tasks for AMZN
+2024-07-28 14:38:07,502 INFO Daily tasks completed for AMZN
+2024-07-28 14:38:07,502 INFO Running daily tasks for TSLA
+2024-07-28 14:38:07,730 INFO Daily tasks completed for TSLA
+2024-07-28 14:42:34,481 INFO Running daily tasks for AAPL
+2024-07-28 14:42:35,356 INFO Daily tasks completed for AAPL
+2024-07-28 14:42:35,356 INFO Running daily tasks for MSFT
+2024-07-28 14:42:35,761 INFO Daily tasks completed for MSFT
+2024-07-28 14:42:35,761 INFO Running daily tasks for GOOGL
+2024-07-28 14:42:36,101 INFO Daily tasks completed for GOOGL
+2024-07-28 14:42:36,103 INFO Running daily tasks for AMZN
+2024-07-28 14:42:36,463 INFO Daily tasks completed for AMZN
+2024-07-28 14:42:36,463 INFO Running daily tasks for TSLA
+2024-07-28 14:42:36,785 INFO Daily tasks completed for TSLA
+2024-07-28 14:46:11,331 INFO Running weekly tasks for AAPL
+2024-07-28 14:46:39,451 INFO Running weekly tasks for AAPL
+2024-07-28 14:50:36,683 INFO Running weekly tasks for AAPL
+2024-07-28 14:54:43,425 INFO Running weekly tasks for AAPL
+2024-07-28 14:56:21,172 INFO Running weekly tasks for AAPL
+2024-07-28 14:57:57,851 INFO Running weekly tasks for AAPL
+2024-07-28 14:59:07,421 INFO Running weekly tasks for AAPL
+2024-07-28 15:01:20,927 INFO Running weekly tasks for AAPL
+2024-07-28 15:01:49,277 INFO Running weekly tasks for AAPL
+2024-07-28 15:03:37,146 INFO Running weekly tasks for AAPL
+2024-07-28 15:05:13,253 INFO Running weekly tasks for AAPL
+2024-07-28 15:06:14,552 INFO Running weekly tasks for AAPL
+2024-07-28 15:06:57,374 INFO Running weekly tasks for AAPL
+2024-07-28 15:07:55,884 INFO Running weekly tasks for AAPL
+2024-07-28 15:07:57,238 INFO Weekly tasks completed for AAPL
+2024-07-28 15:07:57,238 INFO Running weekly tasks for MSFT
+2024-07-28 15:07:57,742 INFO Weekly tasks completed for MSFT
+2024-07-28 15:07:57,742 INFO Running weekly tasks for GOOGL
+2024-07-28 15:07:58,142 INFO Weekly tasks completed for GOOGL
+2024-07-28 15:07:58,142 INFO Running weekly tasks for AMZN
+2024-07-28 15:07:58,523 INFO Weekly tasks completed for AMZN
+2024-07-28 15:07:58,523 INFO Running weekly tasks for TSLA
+2024-07-28 15:07:58,912 INFO Weekly tasks completed for TSLA
+2024-07-28 15:08:31,851 INFO Running monthly tasks for AAPL
+2024-07-28 15:09:12,792 INFO Running monthly tasks for AAPL
+2024-07-28 15:09:14,137 INFO Monthly tasks completed for AAPL
+2024-07-28 15:09:14,137 INFO Running monthly tasks for MSFT
+2024-07-28 15:09:14,662 INFO Monthly tasks completed for MSFT
+2024-07-28 15:09:14,662 INFO Running monthly tasks for GOOGL
+2024-07-28 15:09:15,052 INFO Monthly tasks completed for GOOGL
+2024-07-28 15:09:15,052 INFO Running monthly tasks for AMZN
+2024-07-28 15:09:15,421 INFO Monthly tasks completed for AMZN
+2024-07-28 15:09:15,421 INFO Running monthly tasks for TSLA
+2024-07-28 15:09:15,792 INFO Monthly tasks completed for TSLA

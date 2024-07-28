@@ -22,12 +22,16 @@ def retrain_model(symbol, seq_length=10):
     
     # Load the latest model and its metadata
     try:
-        _, metadata = load_model_version(symbol)
+        model, metadata = load_model_version(symbol)
         last_train_date = datetime.fromisoformat(metadata['timestamp'])
     except FileNotFoundError:
         last_train_date = datetime.now() - timedelta(days=365)  # If no model exists, use 1 year of data
     
     # Fetch new data since last training
+    if (datetime.now() - last_train_date).days <= 1:
+        print("No new data available for retraining")
+        return
+    
     new_data = fetch_new_data(symbol, (datetime.now() - last_train_date).days)
     
     # Preprocess new data
@@ -35,9 +39,28 @@ def retrain_model(symbol, seq_length=10):
     
     # Prepare sequences
     X, y = prepare_sequences(processed_data, seq_length)
+    import torch
+    from torch.utils.data import TensorDataset, DataLoader
+    from sklearn.model_selection import train_test_split
+
+
+    xTrain, xTest, yTrain, yTest = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    xTrain = torch.tensor(xTrain, dtype=torch.float32)
+    yTrain = torch.tensor(yTrain, dtype=torch.float32)
+    xTest = torch.tensor(xTest, dtype=torch.float32)
+    yTest = torch.tensor(yTest, dtype=torch.float32)
+
+    train_dataset = TensorDataset(xTrain, yTrain)
+    val_dataset = TensorDataset(xTest, yTest)
+
+    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=32, shuffle=False)
     
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu") 
     # Train model
-    model, _ = train_model(X, y, X, y)  # Using all data for training in this example
+
+    train_model(model, train_dataloader, val_dataloader, device=device)  # Using all data for training in this example
     
     # Evaluate model
     _, mse, mae, r2 = evaluate_model(model, X, y)
