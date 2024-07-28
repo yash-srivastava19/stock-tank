@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import yfinance as yf
 import torch
-import plotly.express as px
 from sklearn.preprocessing import MinMaxScaler
 from models.model_versioning import load_model_version
 from main import initial_training
